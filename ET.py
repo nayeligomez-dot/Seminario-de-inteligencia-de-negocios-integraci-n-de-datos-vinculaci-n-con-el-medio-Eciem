@@ -16,18 +16,14 @@ from typing import List, Dict, Any, Optional
 import requests
 import pandas as pd
 
-# =====================================================
-# LOGGING
-# =====================================================
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 log = logging.getLogger(__name__)
 
-# =====================================================
-# CONFIGURACIÓN
-# =====================================================
+
 API_URL = "https://www.eciem.cl/api/api_datos.php"
 TOKEN = "Eciem_20252026"  
 TABLAS = [
@@ -40,9 +36,7 @@ DATA_DIR = "data"
 os.makedirs(DATA_DIR, exist_ok=True)
 
 
-# =====================================================
-# HELPERS
-# =====================================================
+
 def _safe_json_preview(text: str, n: int = 300) -> str:
     t = text.replace("\n", " ")
     return (t[:n] + "...") if len(t) > n else t
@@ -152,9 +146,7 @@ def guardar_csv(df: pd.DataFrame, nombre: str) -> str:
     return ruta
 
 
-# =====================================================
-# MAIN
-# =====================================================
+
 def main():
     # Verificación rápida del token
     if not TOKEN or TOKEN == "pon tu token aca":
@@ -208,7 +200,7 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Agrega esto al final de tu ETL actual para ver la estructura real
+
 import pandas as pd
 
 def mostrar_estructura_real():

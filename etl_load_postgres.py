@@ -7,9 +7,7 @@ from typing import Dict, List, Any
 import numpy as np
 from datetime import datetime
 
-# =====================================================
-# CONFIGURACIÓN DE BASE DE DATOS
-# =====================================================
+
 DB_CONFIG = {
     "host": "localhost",
     "database": "eciem_powerbi",
@@ -18,18 +16,13 @@ DB_CONFIG = {
     "port": "5433"
 }
 
-# =====================================================
-# LOGGING
-# =====================================================
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 log = logging.getLogger(__name__)
 
-# =====================================================
-# CLASE PRINCIPAL PARA CARGA DE DATOS
-# =====================================================
+
 class DataLoader:
     def __init__(self, db_config: Dict[str, str], data_dir: str = "data"):
         self.db_config = db_config
@@ -700,9 +693,7 @@ class DataLoader:
         result = self.cur.fetchone()
         return result[0] if result else None
 
-# =====================================================
-# FUNCIÓN PRINCIPAL COMPLETA
-# =====================================================
+
 def main():
     """Función principal para ejecutar la carga de datos completa"""
     
